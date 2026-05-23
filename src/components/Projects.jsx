@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaChevronRight } from "react-icons/fa";
 import eduaiImg from "../assets/EduAI.png";
 import fintrackImg from "../assets/FinTrack.png";
-import studentPerformanceImg from '../assets/student-performance.png';
+import studentPerformanceImg from "../assets/student-performance.png";
+import qrGeneratorImg from "../assets/qr.png";
 
 export default function Projects() {
   const [filter, setFilter] = useState("All");
@@ -61,6 +62,23 @@ export default function Projects() {
       github:
         "https://github.com/vishwas8671/FinTrack-Financial-Transaction-Management-System",
       demo: "https://fin-track-financial-transaction-man.vercel.app/",
+    },
+    {
+      title: "URL to QR Generator",
+      description:
+        "A lightweight web application that instantly converts URLs into scannable QR codes with a clean and responsive interface.",
+      tech: ["HTML5", "CSS3", "JavaScript", "QR Code API", "Responsive Design"],
+      categories: ["Frontend", "Utility"],
+      image: qrGeneratorImg,
+      features: [
+        "Instant QR code generation from any valid URL.",
+        "Responsive and user-friendly interface for seamless usage.",
+        "Client-side implementation with fast performance.",
+        "Input validation for proper URL generation handling.",
+        "Minimal and lightweight design without external frameworks.",
+      ],
+      github: "https://github.com/vishwas8671/URL-to-QR-Generator",
+      demo: "https://url-to-qr-generator-qfpp.vercel.app/",
     },
     {
       title: "Student Performance Classification System",
