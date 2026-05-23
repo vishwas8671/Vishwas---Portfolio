@@ -257,7 +257,7 @@ export default function Hero() {
 
                 <div className="pl-4">
                   <span className="text-gray-400">name:</span>{' '}
-                  <span className="text-emerald-300">'Vishwas Rajput'</span>,
+                  <span className="text-emerald-300">'Vishwas'</span>,
                 </div>
 
                 <div className="pl-4">
