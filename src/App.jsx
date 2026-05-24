@@ -19,113 +19,141 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading/compiling phase for premium feel
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1600);
+
     return () => clearTimeout(timer);
   }, []);
 
   const sectionReveal = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] }
-    }
+      transition: {
+        duration: 0.65,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
   };
 
   return (
     <>
       <AnimatePresence>
         {loading ? (
-          <motion.div 
+          <motion.div
             key="loader"
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="fixed inset-0 z-50 bg-slate-950 flex flex-col items-center justify-center font-mono select-none"
           >
             <div className="w-16 h-16 border-4 border-cyan-500/10 border-t-cyan-400 rounded-full animate-spin mb-6" />
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ repeat: Infinity, duration: 1.2, repeatType: 'reverse' }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.2,
+                repeatType: 'reverse',
+              }}
               className="text-cyan-400 text-xs sm:text-sm tracking-widest font-semibold"
             >
               COMPILE_PORTFOLIO // VISHWAS_RAJPUT
             </motion.div>
           </motion.div>
         ) : (
-          <div className="min-h-screen text-slate-100 select-none overflow-x-hidden relative">
-            {/* Interactive Effects */}
-            <ParticleBackground />
-            <CursorGlow />
+          <div className="relative z-10 min-h-screen overflow-x-hidden text-slate-100 select-none">
             
-            {/* Layout Navigation */}
-            <Navbar />
-            
-            {/* Core Sections with Scroll-Reveal Wrappers */}
-            <Hero />
-            
-            <motion.div
-              variants={sectionReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-            >
-              <About />
-            </motion.div>
+            {/* =========================
+                BACKGROUND EFFECTS
+            ========================== */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+              <ParticleBackground />
+              <CursorGlow />
+            </div>
 
-            <motion.div
-              variants={sectionReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-            >
-              <Skills />
-            </motion.div>
+            {/* =========================
+                MAIN CONTENT
+            ========================== */}
+            <div className="relative z-20">
 
-            <motion.div
-              variants={sectionReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-            >
-              <Projects />
-            </motion.div>
+              {/* Navbar */}
+              <Navbar />
 
-            <motion.div
-              variants={sectionReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-            >
-              <Achievements />
-            </motion.div>
+              {/* Hero */}
+              <Hero />
 
-            <motion.div
-              variants={sectionReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-            >
-              <Certifications />
-            </motion.div>
+              {/* About */}
+              <motion.div
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <About />
+              </motion.div>
 
-            <motion.div
-              variants={sectionReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-            >
-              <Contact />
-            </motion.div>
+              {/* Skills */}
+              <motion.div
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <Skills />
+              </motion.div>
 
-            {/* Layout Footer */}
-            <Footer />
+              {/* Projects */}
+              <motion.div
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <Projects />
+              </motion.div>
 
-            {/* Utility Floating Buttons */}
-            <ScrollToTop />
+              {/* Achievements */}
+              <motion.div
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <Achievements />
+              </motion.div>
+
+              {/* Certifications */}
+              <motion.div
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <Certifications />
+              </motion.div>
+
+              {/* Contact */}
+              <motion.div
+                variants={sectionReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <Contact />
+              </motion.div>
+
+              {/* Footer */}
+              <Footer />
+
+              {/* Scroll Button */}
+              <ScrollToTop />
+            </div>
           </div>
         )}
       </AnimatePresence>
